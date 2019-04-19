@@ -1,0 +1,26 @@
+<div>
+ <h1>Hi {{userinfo.name}}</h1>
+ <h2>Your Role is : {{userinfo.role}}</h2>
+ <h3>Permsisson:{{userinfo.role==="admin"?"You can register user":"You can only see profile"}}</h3>
+ <div *ngIf="userinfo.role==='admin'">
+    <button class="btn btn-success" [routerLink]="['/register']">Add User</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of allusers">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.role}}</td>
+        </tr>
+      </tbody>
+    </table>
+ </div>
+
+</div>
+
